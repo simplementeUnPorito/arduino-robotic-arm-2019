@@ -1,6 +1,6 @@
 <p align="center"><img src="docs/img/banner.svg" width="100%" alt="Arduino Robotic Arm (2019)"></p>
 
-<p align="center"><img src="https://img.shields.io/badge/Arduino-Mega-00979d"> <img src="https://img.shields.io/badge/Servos-MG995-informational"> <img src="https://img.shields.io/badge/MPU--6050-I2C-informational"> <img src="https://img.shields.io/badge/Bluetooth-HM--10-0082fc"> <img src="https://img.shields.io/badge/C%2B%2B-Arduino-555"> <img src="https://img.shields.io/badge/License-MIT-lightgrey"></p>
+<p align="center"><img src="https://img.shields.io/badge/Year-2019-555"> <img src="https://img.shields.io/badge/Arduino-Mega-00979d"> <img src="https://img.shields.io/badge/Servos-MG995-informational"> <img src="https://img.shields.io/badge/MPU--6050-I2C-informational"> <img src="https://img.shields.io/badge/Bluetooth-HM--10-0082fc"> <img src="https://img.shields.io/badge/C%2B%2B-Arduino-555"> <img src="https://img.shields.io/badge/License-MIT-lightgrey"></p>
 <p align="center"><a href="#english">English</a> · <a href="#español">Español</a></p>
 
 ## English
