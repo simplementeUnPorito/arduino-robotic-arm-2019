@@ -66,7 +66,7 @@ Full list in [`hardware/`](hardware/README.md).
 <p align="center"><img src="docs/img/build-arm-segments.jpg" width="360" alt="Metal arm segments laid out with servos and gripper"> <img src="docs/img/build-metal-base-servo.jpg" width="360" alt="Laser-cut metal base frame with servo"></p>
 <p align="center"><img src="docs/img/build-metal-frame.jpg" width="360" alt="Metal frame with servo and wiring"> <img src="docs/img/build-wood-prototype.jpg" width="200" alt="Wooden prototype of the arm"> <img src="docs/img/build-wood-joint.jpg" width="200" alt="Wooden wrist/hand joint prototype"></p>
 
-<p align="center"><img src="docs/img/video-system-blocks.jpg" width="560" alt="System blocks slide: control, inputs, outputs, peripherals, communication, movement"><br><sub>Presentation slide: control, information inputs and outputs, peripherals, communication, movement.</sub></p>
+<p align="center"><img src="docs/img/video-system-blocks.jpg" width="720" alt="System blocks slide: control, inputs, outputs, peripherals, communication, movement"><br><sub>Presentation slide: control, information inputs and outputs, peripherals, communication, movement.</sub></p>
 
 ### Repository layout
 ```
