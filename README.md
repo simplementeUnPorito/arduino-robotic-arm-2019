@@ -8,7 +8,7 @@
 ### Overview
 My first real robotics build: an Arduino-controlled robotic arm, built in 2019 during technical high school by a team of five. It started as a wired arm with four potentiometers that could record and replay a motion, and grew into a wireless master/slave system: a sensor sleeve and glove (flex sensors and MPU-6050 IMUs) streams joint positions over Bluetooth to a second Arduino that drives the servos of a metal arm. It is the direct precedent of my later [PSoC 5LP teach-and-replay arm](https://github.com/simplementeUnPorito/psoc-embedded-projects).
 
-> Firmware transcribed verbatim from the code listings in the original 2019 project report. The photos, figures and video come from that report and its presentation. The sketches were not re-run or re-compiled for this repository.
+> Firmware transcribed verbatim from the code listings in the original 2019 project report. The photos, figures and video come from that report and its presentation. The sketches were compiled with PlatformIO in 2026 (not run on hardware). Part of the original transmitter code was lost (the 2019 listing is truncated). The missing section was rewritten in 2026 from the surviving code and the receiver's protocol, and is marked as RECONSTRUCTED; the rest is transcribed verbatim from the recovered 2019 files.
 
 <p align="center"><img src="docs/img/build-arm-segments.jpg" width="560" alt="Metal arm segments laid out with servos and gripper"><br><sub>Metal arm segments with MG995-class servos and gripper (2019 build)</sub></p>
 
@@ -96,7 +96,7 @@ MIT, see [LICENSE](LICENSE). Report figures and photos are shared for reference.
 ### Resumen
 Mi primer proyecto real de robótica: un brazo robótico controlado con Arduino, construido en 2019 durante el bachillerato técnico por un equipo de cinco personas. Comenzó como un brazo cableado con cuatro potenciómetros capaz de grabar y repetir un movimiento, y evolucionó a un sistema inalámbrico maestro/esclavo: una manga y un guante con sensores (sensores flexibles e IMU MPU-6050) envían las posiciones por Bluetooth a un segundo Arduino que mueve los servos de un brazo metálico. Es el antecedente directo de mi [brazo PSoC 5LP de enseñar y repetir](https://github.com/simplementeUnPorito/psoc-embedded-projects).
 
-> Firmware transcrito textualmente de los listados de código del informe original del proyecto de 2019. Las fotos, figuras y el video provienen de ese informe y su presentación. Los sketches no se volvieron a ejecutar ni compilar para este repositorio.
+> Firmware transcrito textualmente de los listados de código del informe original del proyecto de 2019. Las fotos, figuras y el video provienen de ese informe y su presentación. Los sketches se compilaron con PlatformIO en 2026 (no se probaron en hardware). Se perdieron partes del código original del transmisor (el listado de 2019 está cortado). La sección faltante se reescribió en 2026 a partir del código recuperado y del protocolo del receptor, y está marcada como RECONSTRUCTED; el resto es transcripción literal de los archivos de 2019 recuperados.
 
 ### Puntos destacados
 - Dos generaciones: cableada (4 servos, 4 potenciómetros, un botón) e inalámbrica (hasta 11 servos, 6-7 sensores analógicos, 2 IMU, Bluetooth HM-10).
