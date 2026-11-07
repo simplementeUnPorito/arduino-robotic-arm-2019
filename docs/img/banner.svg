@@ -10,7 +10,7 @@
 <rect x="64" y="58" width="56" height="5" rx="2.5" fill="#fb923c"/>
 <g font-family="Segoe UI, Inter, Helvetica Neue, Arial, sans-serif">
 <text x="64" y="128" font-size="46" font-weight="700" fill="#f8fafc">Arduino Robotic Arm (2019)</text>
-<text x="64" y="176" font-size="21" fill="#94a3b8">First robotics build: servo arm with manual control, the precedent of the PSoC teach-and-replay arm</text>
+<text x="64" y="176" font-size="21" fill="#94a3b8">First robotics build: record/replay arm and IMU sensor glove</text>
 <rect x="64" y="232" width="89" height="34" rx="17" fill="#fb923c" fill-opacity=".12" stroke="#fb923c" stroke-opacity=".55"/><text x="109" y="255" font-size="16" fill="#e2e8f0" text-anchor="middle">Arduino</text><rect x="165.2" y="232" width="80" height="34" rx="17" fill="#fb923c" fill-opacity=".12" stroke="#fb923c" stroke-opacity=".55"/><text x="205" y="255" font-size="16" fill="#e2e8f0" text-anchor="middle">Servos</text><rect x="256.79999999999995" y="232" width="99" height="34" rx="17" fill="#fb923c" fill-opacity=".12" stroke="#fb923c" stroke-opacity=".55"/><text x="306" y="255" font-size="16" fill="#e2e8f0" text-anchor="middle">Robotics</text>
 </g>
 <g transform="translate(980 40)" stroke="#fb923c" fill="#fb923c" stroke-linecap="round" font-family="Segoe UI, Arial, sans-serif"><path d="M40 210 h90" stroke-width="7"/><path d="M85 205 l20 -80 l70 -40 l30 35" fill="none" stroke-width="8" stroke-linejoin="round"/><circle cx="105" cy="125" r="10"/><circle cx="175" cy="85" r="10"/><path d="M205 120 l12 10 M205 120 l-4 16" stroke-width="5"/></g>
