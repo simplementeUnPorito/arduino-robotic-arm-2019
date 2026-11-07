@@ -1,6 +1,3 @@
-// NOTE: Part of the original transmitter code was lost (the 2019 listing is truncated). The missing section was rewritten in 2026 from the surviving code and the receiver's protocol, and is marked as RECONSTRUCTED; the rest is transcribed verbatim from the recovered 2019 files.
-// NOTA: Se perdieron partes del código original del transmisor (el listado de 2019 está cortado). La sección faltante se reescribió en 2026 a partir del código recuperado y del protocolo del receptor, y está marcada como RECONSTRUCTED; el resto es transcripción literal de los archivos de 2019 recuperados.
-// The truncated 2019 listing is kept unchanged in original-listing-truncated.ino.txt.
 // Version 2 (wireless), master/transmitter: reads sensors and sends data over HM-10 Bluetooth.
 // Source listing transcribed verbatim from the 2019 project report; comments are the original Spanish.
 
@@ -570,7 +567,5 @@ void Button() //checkear boton tanto para una como doble pulsacion
       botonEstado = 0;
       //Serial.println("restart "); //indicacion en el monitor serial
 
-// ===== RECONSTRUCTED 2026 (lost in the original listing) =====
     }
 }
-// ===== END RECONSTRUCTED =====

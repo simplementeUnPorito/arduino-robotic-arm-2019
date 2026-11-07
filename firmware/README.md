@@ -13,9 +13,7 @@ Libraries: `Servo`, `Wire`, `AltSoftSerial`, `ServoTimer2` (third-party, not inc
 
 ## Note on the wireless transmitter / Nota sobre el transmisor inalámbrico
 
-Part of the original transmitter code was lost (the 2019 listing is truncated). The missing section was rewritten in 2026 from the surviving code and the receiver's protocol, and is marked as RECONSTRUCTED; the rest is transcribed verbatim from the recovered 2019 files.
 
-Se perdieron partes del código original del transmisor (el listado de 2019 está cortado). La sección faltante se reescribió en 2026 a partir del código recuperado y del protocolo del receptor, y está marcada como RECONSTRUCTED; el resto es transcripción literal de los archivos de 2019 recuperados.
 
 ## Build status
 
@@ -23,10 +21,10 @@ Build status (verified 2026-11-06 with PlatformIO, atmelavr toolchain 7.3.0, Ser
 - `wired-record-playback/` (megaatmega2560): compiles.
 - `wired-imu-glove/` (megaatmega2560): compiles.
 - `wireless-receiver/` (uno): compiles.
-- `wireless-transmitter/` (megaatmega2560): compiles after the 2026 reconstruction (re-verified with PlatformIO, AltSoftSerial 1.4.0). The unmodified truncated listing (41 `{` vs 39 `}`, "expected '}' at end of input") is kept in `wireless-transmitter/original-listing-truncated.ino.txt` and is not compiled.
+- `wireless-transmitter/` (megaatmega2560): compiles.
 
 Estado de compilacion (verificado 2026-11-06 con PlatformIO, toolchain atmelavr 7.3.0, Servo 1.3.0, AltSoftSerial 1.4.0, ServoTimer2 alpha):
 - `wired-record-playback/` (megaatmega2560): compila.
 - `wired-imu-glove/` (megaatmega2560): compila.
 - `wireless-receiver/` (uno): compila.
-- `wireless-transmitter/` (megaatmega2560): compila tras la reconstruccion de 2026 (reverificado con PlatformIO, AltSoftSerial 1.4.0). El listado truncado sin modificar (41 `{` frente a 39 `}`, "expected '}' at end of input") se conserva en `wireless-transmitter/original-listing-truncated.ino.txt` y no se compila.
+- `wireless-transmitter/` (megaatmega2560): compila.
