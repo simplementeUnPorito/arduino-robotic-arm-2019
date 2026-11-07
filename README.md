@@ -95,6 +95,8 @@ MIT, see [LICENSE](LICENSE). Report figures and photos are shared for reference.
 ### Resumen
 Mi primer proyecto real de robótica: un brazo robótico controlado con Arduino, construido en 2019 durante el bachillerato técnico por un equipo de cinco personas. Comenzó como un brazo cableado con cuatro potenciómetros capaz de grabar y repetir un movimiento, y evolucionó a un sistema inalámbrico maestro/esclavo: una manga y un guante con sensores (sensores flexibles e IMU MPU-6050) envían las posiciones por Bluetooth a un segundo Arduino que mueve los servos de un brazo metálico. Es el antecedente directo de mi [brazo PSoC 5LP de enseñar y repetir](https://github.com/simplementeUnPorito/psoc-embedded-projects).
 
+<p align="center"><img src="docs/img/build-arm-segments.jpg" width="560" alt="Segmentos metálicos del brazo dispuestos con servos y pinza"><br><sub>Segmentos metálicos del brazo con servos de clase MG995 y pinza (construcción de 2019)</sub></p>
+
 
 ### Puntos destacados
 - Dos generaciones: cableada (4 servos, 4 potenciómetros, un botón) e inalámbrica (hasta 11 servos, 6-7 sensores analógicos, 2 IMU, Bluetooth HM-10).
@@ -112,18 +114,62 @@ Mi primer proyecto real de robótica: un brazo robótico controlado con Arduino,
 - **Alimentación:** fuente conmutada de 5 V / 10 A para los servos.
 
 ### Arquitectura
-Ver el diagrama de flujo en la sección en inglés y las figuras originales del informe en `docs/figures/`.
+Flujo de control tal como se representó en el informe (diagramas originales en `docs/figures/`).
+
+```mermaid
+flowchart LR
+  subgraph Master["Maestro: manga + guante"]
+    S[Sensores flexibles + MPU-6050] --> M[Mapear posiciones] --> TX[Enviar por HM-10]
+    M --> B{¿Botón?}
+    B -->|sí| REC[Guardar pose en la matriz]
+    REC --> PLAY[Reproducir: leer pose, calcular distancias y micropasos, enviar 1 micropaso]
+  end
+  TX -. Bluetooth .-> RX
+  PLAY -. Bluetooth .-> RX
+  subgraph Slave["Esclavo: brazo"]
+    RX[Leer cadena] --> V{¿Error de lectura?}
+    V -->|no| SP[Separar posiciones articulares] --> SV[Mover servos]
+    V -->|sí| RX
+  end
+```
+
+<p align="center"><img src="docs/figures/flowchart-wireless-master-slave.png" width="640" alt="Diagrama de flujo del informe para los programas maestro y esclavo inalámbricos"><br><sub>Diagrama de flujo del informe: programas maestro y esclavo inalámbricos.</sub></p>
+<p align="center"><img src="docs/figures/flowchart-wired-manual-auto.png" width="640" alt="Diagrama de flujo del informe para los modos manual y automático"><br><sub>Diagrama de flujo del informe: modos manual (aprendizaje) y automático (repetición).</sub></p>
 
 ### Hardware
-Lista completa en [`hardware/`](hardware/README.md) (en inglés): 2 Arduino Mega, 2 módulos HM-10, MPU-6050, sensores flexibles, servos MG995 y menores, fuente de 5 V / 10 A.
+| Componente | Función |
+|-----------|------|
+| Arduino Mega x2 | Controladores maestro y esclavo |
+| HM-10 Bluetooth x2 | Enlace inalámbrico |
+| IMU MPU-6050 | Orientación del brazo |
+| Sensores flexibles / potenciómetros | Entrada de las articulaciones |
+| Servos MG995 y menores | Articulaciones del brazo |
+| Fuente de 5 V / 10 A | Alimentación de los servos |
+
+Lista completa en [`hardware/`](hardware/README.md).
+
+### Fotos
+<p align="center"><img src="docs/img/build-arm-segments.jpg" width="360" alt="Segmentos metálicos del brazo dispuestos con servos y pinza"> <img src="docs/img/build-metal-base-servo.jpg" width="360" alt="Estructura metálica de la base cortada con láser y servo"></p>
+<p align="center"><img src="docs/img/build-metal-frame.jpg" width="360" alt="Estructura metálica con servo y cableado"> <img src="docs/img/build-wood-prototype.jpg" width="200" alt="Prototipo de madera del brazo"> <img src="docs/img/build-wood-joint.jpg" width="200" alt="Prototipo de madera de la articulación de muñeca/mano"></p>
+
+<p align="center"><img src="docs/img/video-system-blocks.jpg" width="720" alt="Diapositiva de bloques del sistema: control, entradas, salidas, periféricos, comunicación, movimiento"><br><sub>Diapositiva de la presentación: control, entradas y salidas de información, periféricos, comunicación, movimiento.</sub></p>
 
 ### Estructura del repositorio
-`firmware/` (4 sketches), `hardware/`, `docs/img/` (fotos y cuadros del video), `docs/figures/` (diagramas del informe), `docs/video/demo.mp4` (re-codificación a 720p de la presentación de 2019).
+```
+firmware/      4 sketches Arduino (grabación/repetición cableada, IMU cableada, maestro y esclavo inalámbricos)
+hardware/      lista de componentes y notas de construcción
+docs/img/      fotos, fotogramas del video, GIF, banner
+docs/figures/  diagramas de flujo del informe
+docs/video/    demo.mp4 (recodificación a 720p de la presentación de 2019, 1:21)
+```
 
 ### Cómo empezar
-Instalar `AltSoftSerial` y `ServoTimer2` en el IDE de Arduino, abrir un sketch de `firmware/` (Arduino Mega para las versiones con IMU) y configurar los HM-10 con comandos AT antes de usar el par inalámbrico.
+1. Usar Arduino IDE 1.8 o posterior; instalar `AltSoftSerial` y `ServoTimer2` (`Servo` y `Wire` vienen incluidas).
+2. Abrir un sketch de `firmware/`. Los sketches con IMU están destinados a un Arduino Mega; AltSoftSerial fija los pines Bluetooth (los comentarios del transmisor mencionan 46 RX / 48 TX en un Mega).
+3. Configurar los módulos HM-10 con comandos AT (`AT+ROLE`, `AT+CON`, ...), como se describe en el informe, antes de usar el par inalámbrico.
 
 ### Qué vino después
+La idea de grabar y repetir (almacenar poses y reproducirlas con suavidad) se reconstruyó sobre un PSoC 5LP con perillas de potenciómetros, teclado, LCD y almacenamiento EEPROM: [psoc-embedded-projects](https://github.com/simplementeUnPorito/psoc-embedded-projects).
 
 ### Equipo y créditos
 Desarrollado en 2019 por Elías Álvarez, Óscar Araujo, Sara Ramírez, Iván Cristaldo y Adolfo Villalba. Construido en 2019 durante el bachillerato técnico.
